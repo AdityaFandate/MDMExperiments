@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CloudNote – Smart Note Taking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0d6efd, #6610f2);
+      color: white;
+      padding: 100px 0;
+    }
+
+    .hero h1 span {
+      color: #ffc107;
+    }
+
+    /* Features */
+    .feature-icon {
+      font-size: 40px;
+      color: #0d6efd;
+    }
+
+    /* Pricing */
+    .price {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+
+      background: #f8f9fa;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">CloudNote</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero text-center">
+    <div class="container">
+      <h1 class="display-4">Take Notes <span>Smarter</span></h1>
+      <p class="lead mt-3">
+        CloudNote helps you organize, sync, and access your notes anytime, anywhere.
+      </p>
+      <a href="#pricing" class="btn btn-warning btn-lg mt-4">Get Started</a>
+
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2>Why Choose CloudNote?</h2>
+        <p class="text-muted">Everything you need to stay productive</p>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="feature-icon mb-3">☁️</div>
+          <h5>Cloud Sync</h5>
+          <p>Access your notes from any device instantly.</p>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="feature-icon mb-3">🔒</div>
+          <h5>Secure</h5>
+          <p>Your data is protected with end-to-end encryption.</p>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="feature-icon mb-3">⚡</div>
+          <h5>Fast & Simple</h5>
+          <p>Minimal UI designed for speed and focus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="bg-light py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2>Pricing Plans</h2>
+        <p class="text-muted">Choose a plan that fits you</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+          <div class="card text-center shadow">
+            <div class="card-body">
+              <h5 class="card-title">Free</h5>
+              <p class="price">₹0</p>
+              <ul class="list-unstyled">
+                <li>✔ 5 Notes</li>
+                <li>✔ Basic Sync</li>
+                <li>✖ Priority Support</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary">Start Free</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card text-center shadow border-primary">
+            <div class="card-body">
+              <h5 class="card-title">Pro</h5>
+              <p class="price">₹299/mo</p>
+              <ul class="list-unstyled">
+                <li>✔ Unlimited Notes</li>
+
+                <li>✔ Advanced Sync</li>
+                <li>✔ Priority Support</li>
+              </ul>
+              <a href="#" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2>Contact Us</h2>
+        <p class="text-muted">We’d love to hear from you</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Message</label>
+              <textarea class="form-control" rows="4"></textarea>
+            </div>
+
+            <button class="btn btn-primary w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-0">© 2026 CloudNote. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

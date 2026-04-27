@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Alternate Weather App</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #89f7fe, #66a6ff);
+      margin-top: 60px;
+    }
+
+    .card {
+      background: white;
+      width: 320px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    input {
+      padding: 8px;
+      width: 70%;
+    }
+
+    button {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    #weatherOutput {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>🌎 Live Weather Application</h2>
+
+  <div class="card">
+    <input type="text" id="city" placeholder="Enter city">
+    <button onclick="fetchWeather()">Check</button>
+
+    <div id="weatherOutput"></div>
+  </div>
+
+  <script>
+
+    async function fetchWeather() {
+
+      const city = document.getElementById("city").value;
+      const output = document.getElementById("weatherOutput");
+
+      if (!city) {
+        alert("Enter a city name");
+        return;
+      }
+
+      output.innerHTML = "Fetching weather data... ⏳";
+
+      try {
+
+        // Geocoding API (same Open-Meteo service)
+        const geoResponse = await fetch(
+          `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
+        );
+
+        const geoData = await geoResponse.json();
+
+        if (!geoData.results) {
+          output.innerHTML = "City not found ❌";
+          return;
+        }
+
+        const latitude = geoData.results[0].latitude;
+        const longitude = geoData.results[0].longitude;
+
+        // Weather API
+        const weatherResponse = await fetch(
+
+          `https://api.open-
+meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_
+
+2m,relative_humidity_2m,weather_code`
+
+        );
+
+        const weatherData = await weatherResponse.json();
+
+        const temp = weatherData.current.temperature_2m;
+        const humidity = weatherData.current.relative_humidity_2m;
+        const code = weatherData.current.weather_code;
+
+        const condition = weatherConditionText(code);
+
+        output.innerHTML = `
+🌡 Temperature: ${temp} °C <br>
+💧 Humidity: ${humidity}% <br>
+🌤 Condition: ${condition}
+`;
+
+      } catch (error) {
+        output.innerHTML = "Error retrieving data ⚠";
+        console.error(error);
+      }
+    }
+
+    // Weather code conversion
+    function weatherConditionText(code) {
+
+      if (code === 0) return "Clear Sky ☀";
+      if (code <= 3) return "Cloudy ⛅";
+
+      if (code === 45) return "Fog 🌫";
+      if (code >= 61 && code <= 65) return "Rain 🌧";
+      if (code >= 71 && code <= 75) return "Snow ❄";
+      if (code >= 95) return "Thunderstorm ⛈";
+
+      return "Unknown";
+    }
+
+  </script>
+
+</body>
+
+</html>

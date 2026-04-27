@@ -1,0 +1,7 @@
+// Project GitHub Link 
+
+https://github.com/AdityaFandate/EventO.git
+
+// Live Project
+
+https://evento-recl.onrender.com/
